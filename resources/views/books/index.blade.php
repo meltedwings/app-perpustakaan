@@ -16,29 +16,29 @@
                 <th>Penerbit</th>
                 <th>Tahun</th>
                 <th>Stok</th>
-                <th>Kategori</th>
+                <th>ID Kategori</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
             @forelse ($books as $book)
                 <tr>
-                    <td>{{ $book['id'] }}</td>
-                    <td>{{ $book['judul'] }}</td>
-                    <td>{{ $book['penulis'] }}</td>
-                    <td>{{ $book['penerbit'] }}</td>
-                    <td>{{ $book['tahun_terbit'] }}</td>
-                    <td>{{ $book['stok'] }}</td>
-                    <td>{{ $book['kategori'] }}</td>
+                    <td>{{ $book->id }}</td>
+                    <td>{{ $book->judul }}</td>
+                    <td>{{ $book->penulis }}</td>
+                    <td>{{ $book->penerbit }}</td>
+                    <td>{{ $book->tahun_terbit }}</td>
+                    <td>{{ $book->stok }}</td>
+                    <td>{{ $book->category_id }}</td>
                     <td>
-                        <a href="{{ route('books.show', $book['id']) }}">Detail</a>
+                        <a href="{{ route('books.show', $book->id) }}">Detail</a>
                         |
-                        <a href="{{ route('books.edit', $book['id']) }}">Edit</a>
+                        <a href="{{ route('books.edit', $book->id) }}">Edit</a>
                         |
-                        <form class="inline" action="{{ route('books.destroy', $book['id']) }}" method="POST">
+                        <form class="inline" style="display:inline;" action="{{ route('books.destroy', $book->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Hapus</button>
+                            <button type="submit" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer;">Hapus</button>
                         </form>
                     </td>
                 </tr>
@@ -50,5 +50,9 @@
         </tbody>
     </table>
 
-    <p><em>Catatan: data di atas masih data dummy (array statis di Controller), belum dari database. Migration &amp; Model Eloquent baru dibuat di Pertemuan 5.</em></p>
+    <div style="margin-top: 20px;">
+        {{ $books->links() }}
+    </div>
+
+    <p><em>Catatan: kolom kategori masih menampilkan ID. Menampilkan nama kategori memerlukan Eloquent Relationship, dipelajari di Pertemuan 7.</em></p>
 @endsection
