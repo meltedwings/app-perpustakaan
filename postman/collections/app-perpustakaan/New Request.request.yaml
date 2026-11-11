@@ -1,0 +1,21 @@
+$kind: http-request
+url: http://127.0.0.1:8000/api/stats
+method: GET
+headers:
+  Accept: application/json
+body:
+  type: json
+  content: "{\r
+
+    \  \"member_id\": 1,\r
+
+    \  \"user_id\": 1,\r
+
+    \  \"tanggal_pinjam\": \"2026-11-11\",\r
+
+    \  \"tanggal_kembali\": \"2026-11-18\",\r
+
+    \  \"book_ids\": [5]\r
+
+    }"
+order: 1000

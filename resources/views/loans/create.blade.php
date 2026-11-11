@@ -7,17 +7,11 @@
         body { font-family: sans-serif; margin: 40px; max-width: 500px; }
         label { display: block; margin-top: 12px; font-weight: bold; }
         input, select { width: 100%; padding: 6px; margin-top: 4px; box-sizing: border-box; }
-        
-        /* Perbaikan agar checkbox tidak melebar 100% */
         input[type="checkbox"] { width: auto; margin-top: 0; margin-right: 6px; cursor: pointer; }
-        
         .checkbox-list { border: 1px solid #ccc; border-radius: 4px; padding: 10px; margin-top: 4px; max-height: 200px; overflow-y: auto; }
         .checkbox-list label { display: flex; align-items: center; font-weight: normal; margin-top: 6px; cursor: pointer; }
         .checkbox-list label:first-child { margin-top: 0; }
-        
-        /* Perbaikan jarak teks petugas */
         .petugas-info { margin-top: 4px; font-size: 14px; }
-        
         .error { color: #b91c1c; font-size: 14px; margin-top: 4px; }
         .btn { margin-top: 20px; padding: 8px 16px; background: #2563eb; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
     </style>
